@@ -3,8 +3,8 @@ package com.theorganisation.domain;
 import javax.persistence.Entity;
 
 @Entity
-public class Consultant extends Employee{
-    private final String titel = "Consultant";
+public class HrManager extends Employee {
+    private final String titel = "HR Manager";
 
     public String getTitel() {
         return titel;
