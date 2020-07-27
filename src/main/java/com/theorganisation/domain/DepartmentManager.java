@@ -1,5 +1,15 @@
 package com.theorganisation.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class DepartmentManager extends Employee implements MeetingLeader {
-    public void startMeeting(){}
+    private final String titel = "Department Manager";
+
+    public String getTitel() {
+        return titel;
+    }
+
+    public void startMeeting() {
+    }
 }
