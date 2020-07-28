@@ -12,7 +12,6 @@ public class EmployeeEndpoint {
     @Autowired
     EmployeeService es;
 
-
     @PostMapping("/new/hrmanager")
     public HrManager addHrManager(@RequestBody HrManager hr) {
         return es.addHrManager(hr);
@@ -24,17 +23,27 @@ public class EmployeeEndpoint {
     }
 
     @PostMapping("new/programmer")
-    public Employee addProgrammer(@RequestBody Programmer ep){
+    public Employee addProgrammer(@RequestBody Programmer ep) {
         return es.addProgrammer(ep);
     }
 
     @PostMapping("new/consultant")
-    public Employee addConsultant(@RequestBody Consultant ec){
+    public Employee addConsultant(@RequestBody Consultant ec) {
         return es.addConsultant(ec);
     }
 
     @GetMapping("/all")
     public Iterable<Employee> getAllEmployee() {
         return es.getAllEmployee();
+    }
+
+    @GetMapping("/id/{id}")
+    public Employee getEmployeeById(@PathVariable(value = "id") long id) {
+        return es.getEmployeeById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public Employee updateEmployeeSalary(@PathVariable(value = "id") long id, @RequestBody Employee ep) {
+        return es.updateEmployeeSalary(id, ep);
     }
 }
