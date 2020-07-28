@@ -46,4 +46,9 @@ public class EmployeeEndpoint {
     public Employee updateEmployeeSalary(@PathVariable(value = "id") long id, @RequestBody Employee ep) {
         return es.updateEmployeeSalary(id, ep);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteEmployeeById(@PathVariable(value = "id") long id) {
+        es.deleteEmployeeById(id);
+    }
 }

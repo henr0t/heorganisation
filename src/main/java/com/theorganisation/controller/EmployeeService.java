@@ -46,7 +46,12 @@ public class EmployeeService {
     public Employee updateEmployeeSalary(long id, Employee ep) {
         System.out.println("Called updateEmployeeSalary from EmployeeService");
         Employee emp = getEmployeeById(id);
-        emp.setSalary(ep.getSalary ());
+        emp.setSalary(ep.getSalary());
         return er.save(emp);
+    }
+
+    public void deleteEmployeeById(long id) {
+        System.out.println("Called deleteEmployeeById from EmployeeService");
+        er.deleteById(id);
     }
 }
