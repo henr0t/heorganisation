@@ -37,4 +37,16 @@ public class EmployeeService {
         System.out.println("Called addConsultant from EmployeeService");
         return er.save(ec);
     }
+
+    public Employee getEmployeeById(long id) {
+        System.out.println("Called getEmployeeById from EmployeeService");
+        return er.findById(id).get();
+    }
+
+    public Employee updateEmployeeSalary(long id, Employee ep) {
+        System.out.println("Called updateEmployeeSalary from EmployeeService");
+        Employee emp = getEmployeeById(id);
+        emp.setSalary(ep.getSalary ());
+        return er.save(emp);
+    }
 }

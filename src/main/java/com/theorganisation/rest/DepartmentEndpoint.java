@@ -22,23 +22,23 @@ public class DepartmentEndpoint {
         return ds.getAllDepartments();
     }
 
-    @GetMapping("/id/{insertid}")
-    public Department getDepartmentById(@PathVariable(value = "insertid") long id) {
+    @GetMapping("/id/{id}")
+    public Department getDepartmentById(@PathVariable(value = "id") long id) {
         return ds.getById(id);
     }
 
-    @GetMapping("/name/{insertname}")
-    public Department getDepartmentByName(@PathVariable(value = "insertname") String name) {
+    @GetMapping("/name/{name}")
+    public Department getDepartmentByName(@PathVariable(value = "name") String name) {
         return ds.getByName(name);
     }
 
-    @DeleteMapping("/delete/{insertid}")
-    public void deleteById(@PathVariable(value = "insertid") long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable(value = "id") long id) {
         ds.deleteById(id);
     }
 
-    @PutMapping("/update/{insertid}")
-    public Department updateDepartment(@PathVariable(value = "insertid") long id, @RequestBody Department dp) {
+    @PutMapping("/update/{id}")
+    public Department updateDepartment(@PathVariable(value = "id") long id, @RequestBody Department dp) {
         return ds.updateDepartment(id, dp);
     }
 }
