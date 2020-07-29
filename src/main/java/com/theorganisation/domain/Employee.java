@@ -1,8 +1,6 @@
 package com.theorganisation.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -13,7 +11,10 @@ public class Employee {
     long id;
     String name;
     double salary;
-    //List<Message> messages = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "phone_id")
+    private Phone phone;
 
     public long getId() {
         return id;
@@ -39,5 +40,15 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Phone getPhone() {
+        return phone;
+    }
 
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    public void addPhone(Phone phone) {
+        this.phone = phone;
+    }
 }

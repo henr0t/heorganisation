@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -12,6 +13,9 @@ public class EmployeeService {
 
     @Autowired
     EmployeeRepository er;
+
+    @Autowired
+    PhoneService ps;
 
     public HrManager addHrManager(HrManager hr) {
         System.out.println("Called addHrManager from EmployeeService");
@@ -53,5 +57,13 @@ public class EmployeeService {
     public void deleteEmployeeById(long id) {
         System.out.println("Called deleteEmployeeById from EmployeeService");
         er.deleteById(id);
+    }
+
+    public void addPhoneToEmployee(long id, long phoneid) {
+        System.out.println("Called addPhoneToEmployee from EmployeeService");
+        Employee emp = getEmployeeById(id);
+        Phone pho = ps.getPhoneById(phoneid);
+        emp.addPhone(pho);
+        er.save(emp);
     }
 }
