@@ -66,4 +66,11 @@ public class EmployeeService {
         emp.addPhone(pho);
         er.save(emp);
     }
+
+    public Employee dateOfBirth(long id, Employee ep) {
+        System.out.println("Called dateOfBirth from EmployeeService");
+        Employee emp = getEmployeeById(id);
+        emp.setDate(ep.getDate());
+        return er.save(emp);
+    }
 }

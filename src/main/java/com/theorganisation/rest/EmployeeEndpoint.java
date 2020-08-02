@@ -51,4 +51,9 @@ public class EmployeeEndpoint {
     public void deleteEmployeeById(@PathVariable(value = "id") long id) {
         es.deleteEmployeeById(id);
     }
+
+    @PutMapping("/birthdate/{id}")
+    public Employee dateOfBirth(@PathVariable(value = "id") long id, @RequestBody Employee ep) {
+        return es.dateOfBirth(id, ep);
+    }
 }

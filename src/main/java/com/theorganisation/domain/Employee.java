@@ -1,6 +1,7 @@
 package com.theorganisation.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "employee")
@@ -11,6 +12,7 @@ public class Employee {
     long id;
     String name;
     double salary;
+    String date;
 
     @OneToOne
     @JoinColumn(name = "phone_id")
@@ -50,5 +52,13 @@ public class Employee {
 
     public void addPhone(Phone phone) {
         this.phone = phone;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
